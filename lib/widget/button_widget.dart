@@ -15,7 +15,7 @@ class ButtonWidget extends StatelessWidget {
         onPressed: onClicked,
         style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xf7c302), // Background color
-            foregroundColor: Colors.black, // Text Color (Foreground color)
+            foregroundColor: Colors.blue, // Text Color (Foreground color)
             shadowColor: Colors.amberAccent),
         child: Text(
           text,
