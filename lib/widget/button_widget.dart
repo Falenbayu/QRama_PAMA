@@ -16,7 +16,7 @@ class ButtonWidget extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.lightBlue, // Background color
             foregroundColor: Colors.amber, // Text Color (Foreground color)
-            shadowColor: Colors.white),
+            shadowColor: Colors.amberAccent),
         child: Text(
           text,
           style: TextStyle(fontSize: 24),
