@@ -1,41 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:qr_code_scanner_example/page/qr_create_page.dart';
+import 'package:qr_code_scanner_example/page/qr_scan_page.dart';
+import 'package:qr_code_scanner_example/widget/button_widget.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
+  runApp(MyApp());
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+class MyApp extends StatelessWidget {
+  static final String title = 'QR Code Scanner';
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
+  Widget build(BuildContext context) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: title,
+        theme: ThemeData(
+          primaryColor: Colors.red,
+          scaffoldBackgroundColor: Colors.black,
         ),
-      ),
-    );
-  }
+        home: MainPage(title: title),
+      );
+}
+
+class MainPage extends StatefulWidget {
+  final String title;
+
+  const MainPage({
+    @required this.title,
+  });
+
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ButtonWidget(
+                text: 'Create QR Code',
+                onClicked: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => QRCreatePage(),
+                )),
+              ),
+              const SizedBox(height: 32),
+              ButtonWidget(
+                text: 'Scan QR Code',
+                onClicked: () => Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => QRScanPage(),
+                )),
+              ),
+            ],
+          ),
+        ),
+      );
 }
