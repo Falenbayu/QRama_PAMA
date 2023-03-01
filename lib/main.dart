@@ -45,6 +45,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          backgroundColor: Colors.orangeAccent,
         ),
         body: Center(
           child: Column(
@@ -62,6 +63,17 @@ class _MainPageState extends State<MainPage> {
                 onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => QRScanPage(),
                 )),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            children: <Widget>[
+              Icon(Icons.home),
+              IconButton(
+                alignment: Alignment.center,
+                icon: Icon(Icons.add_box),
               ),
             ],
           ),
