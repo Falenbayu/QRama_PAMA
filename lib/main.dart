@@ -66,5 +66,21 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.scanner),
+              label: 'Scan',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.file_copy_rounded),
+              label: 'Database',
+            ),
+          ],
+        ),
       );
 }
