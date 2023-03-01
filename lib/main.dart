@@ -67,16 +67,32 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            children: <Widget>[
-              Icon(Icons.home),
-              IconButton(
-                alignment: Alignment.center,
-                icon: Icon(Icons.add_box),
+        bottomNavigationBar: i(
+          pageController: _pageController,
+          bottomBarItems: [
+            const BottomBarItem(
+              inActiveItem: Icon(
+                Icons.home_filled,
+                color: Colors.blueGrey,
               ),
-            ],
-          ),
+              activeItem: Icon(
+                Icons.home_filled,
+                color: Colors.blueAccent,
+              ),
+              itemLabel: 'Page 1',
+            ),
+            const BottomBarItem(
+              inActiveItem: Icon(
+                Icons.star,
+                color: Colors.blueGrey,
+              ),
+              activeItem: Icon(
+                Icons.star,
+                color: Colors.blueAccent,
+              ),
+              itemLabel: 'Page 2',
+            ),
+          ],
         ),
       );
 }
