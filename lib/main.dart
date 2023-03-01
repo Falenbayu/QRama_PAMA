@@ -15,7 +15,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'QR Code Scanner';
+  static final String title = 'QRama';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
