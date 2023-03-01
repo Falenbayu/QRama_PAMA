@@ -55,6 +55,7 @@ class _QRCreatePageState extends State<QRCreatePage> {
         ),
         decoration: InputDecoration(
           hintText: 'Enter the data',
+          hintText: 'Deskripsi',
           hintStyle: TextStyle(color: Colors.grey),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),

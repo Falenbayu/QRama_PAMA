@@ -15,7 +15,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'QRama PAMA';
+  static final String title = 'QR Code Scanner';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         title: title,
         theme: ThemeData(
           primaryColor: Colors.red,
-          scaffoldBackgroundColor: Color(0x253b7d),
+          scaffoldBackgroundColor: Colors.black,
         ),
         home: MainPage(title: title),
       );
@@ -45,14 +45,13 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          backgroundColor: Colors.orangeAccent,
         ),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ButtonWidget(
-                text: 'Generate QR Code',
+                text: 'Create QR Code',
                 onClicked: () => Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => QRCreatePage(),
                 )),
@@ -66,33 +65,6 @@ class _MainPageState extends State<MainPage> {
               ),
             ],
           ),
-        ),
-        bottomNavigationBar: i(
-          pageController: _pageController,
-          bottomBarItems: [
-            const BottomBarItem(
-              inActiveItem: Icon(
-                Icons.home_filled,
-                color: Colors.blueGrey,
-              ),
-              activeItem: Icon(
-                Icons.home_filled,
-                color: Colors.blueAccent,
-              ),
-              itemLabel: 'Page 1',
-            ),
-            const BottomBarItem(
-              inActiveItem: Icon(
-                Icons.star,
-                color: Colors.blueGrey,
-              ),
-              activeItem: Icon(
-                Icons.star,
-                color: Colors.blueAccent,
-              ),
-              itemLabel: 'Page 2',
-            ),
-          ],
         ),
       );
 }
