@@ -67,6 +67,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.black,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -79,6 +80,10 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.file_copy_rounded),
               label: 'Database',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.import_export),
+              label: 'Export',
             ),
           ],
         ),
